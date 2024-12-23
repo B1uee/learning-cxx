@@ -8,7 +8,7 @@
 // 因此 `enum` 定义会污染命名空间。
 enum ColorEnum : unsigned char {
     COLOR_RED = 31,
-    COLOR_GREEN,
+    COLOR_GREEN, // 隐式赋值为 COLOR_RED + 1
     COLOR_YELLOW,
     COLOR_BLUE,
 };
@@ -30,6 +30,7 @@ ColorEnum convert_by_pun(Color c) {
     // 但这种写法实际上仅在 C 语言良定义，在 C++ 中是未定义行为。
     // 这是比较少见的 C++ 不与 C 保持兼容的特性。
     // READ: 类型双关 <https://tttapa.github.io/Pages/Programming/Cpp/Practices/type-punning.html>
+    // 所有非静态数据成员均拥有相同的地址，联合体的大小是其最大成员的大小
     union TypePun {
         ColorEnum e;
         Color c;
@@ -37,6 +38,13 @@ ColorEnum convert_by_pun(Color c) {
 
     TypePun pun;
     // TODO: 补全类型双关转换
+    pun.c = c;  //通过联合体的内存重用特性，将一个类型的数据解释为另一种类型。这种方法称为类型双关转换
+
+    // 假设我想实现逐比特将float转为int的功能
+    // float f = 1.0;
+    // int i = *reinterpret_cast<int*>(&f);
+    // 这样的写法在大多数平台上都是可以正常工作的，因为都是4byte，但它其实是未定义行为，
+    // x86支持非对齐内存访问，但是ARM和RISCV不支持，所以这样的写法在ARM上可能会出现问题
 
     return pun.e;
 }

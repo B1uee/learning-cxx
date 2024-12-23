@@ -2,7 +2,7 @@
 
 // READ: 数组 <https://zh.cppreference.com/w/cpp/language/array>
 
-unsigned long long arr[90]{0, 1};  //unsigned long long 8字节，90*8=720字节
+unsigned long long arr[90]{0, 1};  //unsinged long long 8字节 90*8=720
 unsigned long long fibonacci(int i) {
     switch (i) {
         case 0:
@@ -11,7 +11,7 @@ unsigned long long fibonacci(int i) {
             return 1;
         default:
             // TODO: 补全三目表达式缺失的部分
-            return i > 1 ? fibonacci(i) : (arr[i] = fibonacci(i - 1) + fibonacci(i - 2));
+            return arr[i] ? arr[i] : (arr[i] = fibonacci(i - 1) + fibonacci(i - 2));
     }
 }
 
