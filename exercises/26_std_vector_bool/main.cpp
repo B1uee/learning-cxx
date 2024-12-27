@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
     // THINK: 为什么 `sizeof(std::vector<bool>)` 的值是这样的？
     // ANSWER: std::vector<bool> 是一个特殊化的模板实现，它使用位压缩来存储布尔值。这种实现可能导致其内存布局与其他类型的 std::vector 不同
     std::cout << "sizeof(std::vector<bool>) = " << sizeof(std::vector<bool>) << std::endl;
-    ASSERT(sizeof(vec) == 24, "Fill in the correct value.");
+    ASSERT(sizeof(vec) == 32, "Fill in the correct value."); // macos = 24，windows是32
     {
         vec[20] = false;
         ASSERT(!vec[20], "Fill in `vec[20]` or `!vec[20]`.");
