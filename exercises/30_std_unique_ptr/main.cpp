@@ -47,25 +47,25 @@ int main(int argc, char **argv) {
     problems[0] = std::move(RECORDS);   // fd
 
     // 因为problems[0]是一个vector，不能直接输出，需要遍历输出
-    for(const auto &str : problems[0]){
-        std::cout << str << " ";
-    }
-    std::cout << std::endl; 
+    // for(const auto &str : problems[0]){
+    //     std::cout << str << " ";
+    // }
+    // std::cout << std::endl; 
 
     forward(drop(reset(forward(forward(reset(nullptr))))));
     problems[1] = std::move(RECORDS);
-    for(const auto &str : problems[1]){
-        std::cout << str << " ";
-    }
-    std::cout << std::endl; 
+    // for(const auto &str : problems[1]){
+    //     std::cout << str << " ";
+    // }
+    // std::cout << std::endl; 
 
     drop(drop(reset(drop(reset(reset(nullptr))))));
     problems[2] = std::move(RECORDS);
 
-    for(const auto &str : problems[2]){
-        std::cout << str << " ";
-    }
-    std::cout << std::endl; 
+    // for(const auto &str : problems[2]){
+    //     std::cout << str << " ";
+    // }
+    // std::cout << std::endl; 
 
     // ---- 不要修改以上代码 ----
 

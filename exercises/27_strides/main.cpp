@@ -21,7 +21,7 @@ std::vector<udim> strides(std::vector<udim> const &shape) {
     auto ans = strides.rbegin();
     *ans = 1;
     for(auto it = shape.rbegin(); it != shape.rend(); ++it, ++ans){
-        ans[1] = ans[0] * *it;
+        ans[1] = ans[0] * (*it);
     }
     return strides;
 }
