@@ -69,11 +69,11 @@ int main(int argc, char **argv) {
 
     // ---- 不要修改以上代码 ----
 
-    std::vector<const char *> answers[]{
+    std::vector<const char *> answers[]{   // 平台相关，如果是macos则为{"d", "ffr"}和{"d", "d", "r"}
         {"fd"},
         // TODO: 分析 problems[1] 中资源的生命周期，将记录填入 `std::vector`
-        {"d", "ffr"},
-        {"d", "d", "r"},     // 与构造相反的顺序进行析构，每次析构得到Resource的记录
+        {"ffr", "d"},
+        {"r", "d", "d"},     // 与构造相反的顺序进行析构，每次析构得到Resource的记录
     };
 
     // ---- 不要修改以下代码 ----
